@@ -1,4 +1,4 @@
-package com.devops.paymentservice.config;
+package com.devops.orderservice.config;
 
 import com.devops.common.dtos.ServiceResponse;
 import com.devops.common.exceptions.BadRequestException;
