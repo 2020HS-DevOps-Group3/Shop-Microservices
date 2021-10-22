@@ -1,9 +1,9 @@
 package com.devops.orderservice.service;
 
+import com.devops.common.exceptions.ProductNotFoundException;
+import com.devops.common.utils.Constants;
 import com.devops.orderservice.entity.OrderedProducts;
-import com.devops.orderservice.exceptions.ProductNotFoundException;
 import com.devops.orderservice.repository.ProductRepository;
-import com.devops.orderservice.utils.Constants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

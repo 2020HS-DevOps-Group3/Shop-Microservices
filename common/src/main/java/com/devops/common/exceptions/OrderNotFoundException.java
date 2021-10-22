@@ -1,4 +1,4 @@
-package com.devops.orderservice.exceptions;
+package com.devops.common.exceptions;
 
 public class OrderNotFoundException extends BadRequestException {
 

@@ -1,9 +1,9 @@
 package com.devops.orderservice.config;
 
-import com.devops.orderservice.dtos.ServiceResponse;
-import com.devops.orderservice.exceptions.BadRequestException;
-import com.devops.orderservice.exceptions.NotFoundException;
-import com.devops.orderservice.utils.Constants;
+import com.devops.common.dtos.ServiceResponse;
+import com.devops.common.exceptions.BadRequestException;
+import com.devops.common.exceptions.NotFoundException;
+import com.devops.common.utils.Constants;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

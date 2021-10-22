@@ -1,4 +1,4 @@
-package com.devops.paymentservice.utils;
+package com.devops.common.utils;
 
 public interface Constants {
 
@@ -72,6 +72,8 @@ public interface Constants {
         public static final String USER_NOT_FOUND = "User not found";
         public static final String USER_ALREADY_EXISTS = "User already exists";
         public static final String PAYMENT_ALREADY_MADE = "Payment details already exists";
+        public static final String ORDER_NOT_FOUND = "Order not found";
+        public static final String PRODUCT_NOT_FOUND = "Product not found";
 
         private ErrorMessages() {
         }
