@@ -1,9 +1,9 @@
 package com.devops.paymentservice.service;
 
+import com.devops.common.exceptions.PaymentAlreadyMadeException;
+import com.devops.common.utils.Constants;
 import com.devops.paymentservice.entity.Payments;
-import com.devops.paymentservice.exceptions.PaymentAlreadyMadeException;
 import com.devops.paymentservice.repository.PaymentRepository;
-import com.devops.paymentservice.utils.Constants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

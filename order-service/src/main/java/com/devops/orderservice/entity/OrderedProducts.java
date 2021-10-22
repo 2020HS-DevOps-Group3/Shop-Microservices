@@ -5,16 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Orders {
+public class OrderedProducts {
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -22,12 +19,16 @@ public class Orders {
     private String id;
 
     @Column(nullable = false)
-    private int totalQty;
+    private String productId;
 
     @Column(nullable = false)
-    private double totalPrice;
+    private int qty;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
-//    private Set<OrderedProducts> products;
+    @Column(nullable = false)
+    private double price;
+
+    //    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "order_id", referencedColumnName = "id", nullable = false)
+    private Orders order;
 }

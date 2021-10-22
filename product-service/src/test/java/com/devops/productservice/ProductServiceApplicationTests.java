@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class ProductServiceApplicationTests {
 
-	@Test
-	void contextLoads() {
-		int actual = 0;
-		assertEquals(0, actual);
-	}
+    @Test
+    void contextLoads() {
+        int actual = 0;
+        assertEquals(0, actual);
+    }
 
 }

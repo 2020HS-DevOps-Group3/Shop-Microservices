@@ -1,11 +1,10 @@
-package com.devops.orderservice.entity;
+package com.devops.productservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,20 +13,16 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Orders {
+public class Products {
 
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
 
-    @Column(nullable = false)
-    private int totalQty;
+    private String name;
 
-    @Column(nullable = false)
-    private double totalPrice;
+    private String qty;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
-//    private Set<OrderedProducts> products;
+    private String price;
 }
