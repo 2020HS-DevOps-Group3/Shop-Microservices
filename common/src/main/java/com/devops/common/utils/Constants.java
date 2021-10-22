@@ -1,4 +1,4 @@
-package com.devops.orderservice.utils;
+package com.devops.common.utils;
 
 public interface Constants {
 

@@ -31,6 +31,7 @@
         <module>payment-service</module>
         <module>service-registry</module>
         <module>product-service</module>
+        <module>common</module>
     </modules>
 
     <dependencies>

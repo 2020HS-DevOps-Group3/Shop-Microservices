@@ -1,6 +1,6 @@
-package com.devops.orderservice.dtos;
+package com.devops.common.dtos;
 
-import com.devops.orderservice.utils.Constants;
+import com.devops.common.utils.Constants;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpHeaders;
@@ -19,11 +19,6 @@ public class ServiceResponse<T> {
         this.message = message;
     }
 
-    /**
-     * @param results
-     * @param message
-     * @return <T> ResponseEntity<ServiceResponse<T>>
-     */
     private static <T> ServiceResponse<T> generateResponseBuilder(T results, String message) {
         return new ServiceResponse<>(results, message);
     }
