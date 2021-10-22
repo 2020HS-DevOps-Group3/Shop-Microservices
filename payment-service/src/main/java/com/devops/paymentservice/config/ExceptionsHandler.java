@@ -1,9 +1,9 @@
 package com.devops.paymentservice.config;
 
-import com.devops.paymentservice.dtos.ServiceResponse;
-import com.devops.paymentservice.exceptions.BadRequestException;
-import com.devops.paymentservice.exceptions.NotFoundException;
-import com.devops.paymentservice.utils.Constants;
+import com.devops.common.dtos.ServiceResponse;
+import com.devops.common.exceptions.BadRequestException;
+import com.devops.common.exceptions.NotFoundException;
+import com.devops.common.utils.Constants;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

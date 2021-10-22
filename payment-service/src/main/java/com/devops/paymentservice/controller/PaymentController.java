@@ -1,7 +1,7 @@
 package com.devops.paymentservice.controller;
 
+import com.devops.common.exceptions.PaymentAlreadyMadeException;
 import com.devops.paymentservice.entity.Payments;
-import com.devops.paymentservice.exceptions.PaymentAlreadyMadeException;
 import com.devops.paymentservice.service.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

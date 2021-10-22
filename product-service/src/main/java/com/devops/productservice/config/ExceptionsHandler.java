@@ -1,9 +1,9 @@
 package com.devops.productservice.config;
 
-import com.devops.productservice.dtos.ServiceResponse;
-import com.devops.productservice.exceptions.BadRequestException;
-import com.devops.productservice.exceptions.NotFoundException;
-import com.devops.productservice.utils.Constants;
+import com.devops.common.dtos.ServiceResponse;
+import com.devops.common.exceptions.BadRequestException;
+import com.devops.common.exceptions.NotFoundException;
+import com.devops.common.utils.Constants;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
