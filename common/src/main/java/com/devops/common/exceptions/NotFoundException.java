@@ -1,4 +1,4 @@
-package com.devops.paymentservice.exceptions;
+package com.devops.common.exceptions;
 
 public class NotFoundException extends ServiceException {
     public NotFoundException(String s) {

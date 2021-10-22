@@ -1,0 +1,32 @@
+create table order_products
+(
+    order_id   varchar(255) not null,
+    product_id varchar(255) not null,
+    primary key (order_id, product_id)
+);
+
+create table orders
+(
+    id          varchar(255) not null,
+    total_price double       not null,
+    total_qty   integer      not null,
+    primary key (id)
+);
+
+create table products
+(
+    id    varchar(255) not null,
+    price double       not null,
+    qty   integer      not null,
+    primary key (id)
+);
+
+alter table order_products
+    add constraint FKdxjduvg7991r4qja26fsckxv8
+        foreign key (product_id)
+            references products;
+
+alter table order_products
+    add constraint FKawxpt1ns1sr7al76nvjkv21of
+        foreign key (order_id)
+            references orders
