@@ -12,7 +12,7 @@ import com.devops.paymentservice.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 @Service
 @RequiredArgsConstructor
@@ -36,7 +36,8 @@ public class PaymentService {
     }
 
     private PaymentStatus getRandomStatus() {
-        return new Random().nextBoolean() ? PaymentStatus.SUCCESS : PaymentStatus.FAILED;
+        SecureRandom random = new SecureRandom();
+        return random.nextBoolean() ? PaymentStatus.SUCCESS : PaymentStatus.FAILED;
     }
 
     public PaymentResponse getPaymentsByOrderId(String orderId) throws PaymentNotFoundException {
