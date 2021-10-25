@@ -1,5 +1,6 @@
 package com.devops.paymentservice.entity;
 
+import com.devops.common.enums.PaymentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,10 @@ public class Payments {
     private String id;
 
     @Column(nullable = false)
-    private boolean status;
+    private PaymentStatus status;
+
+    @Column(nullable = false)
+    private double totalPrice;
 
     @Column(unique = true, nullable = false)
     private String orderId;
