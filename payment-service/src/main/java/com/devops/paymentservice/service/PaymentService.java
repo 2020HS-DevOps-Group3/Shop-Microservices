@@ -1,18 +1,18 @@
 package com.devops.paymentservice.service;
 
+import com.devops.common.dtos.payment.request.PaymentRequest;
+import com.devops.common.dtos.payment.response.PaymentResponse;
 import com.devops.common.enums.PaymentStatus;
 import com.devops.common.exceptions.PaymentAlreadyMadeException;
 import com.devops.common.exceptions.PaymentNotFoundException;
 import com.devops.common.utils.Constants;
 import com.devops.common.utils.ServiceUtils;
-import com.devops.paymentservice.dtos.request.PaymentRequest;
-import com.devops.paymentservice.dtos.response.PaymentResponse;
 import com.devops.paymentservice.entity.Payments;
 import com.devops.paymentservice.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 @Service
 @RequiredArgsConstructor
@@ -36,7 +36,8 @@ public class PaymentService {
     }
 
     private PaymentStatus getRandomStatus() {
-        return new Random().nextBoolean() ? PaymentStatus.SUCCESS : PaymentStatus.FAILED;
+        SecureRandom random = new SecureRandom();
+        return random.nextBoolean() ? PaymentStatus.SUCCESS : PaymentStatus.FAILED;
     }
 
     public PaymentResponse getPaymentsByOrderId(String orderId) throws PaymentNotFoundException {

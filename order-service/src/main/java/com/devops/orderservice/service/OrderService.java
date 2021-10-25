@@ -1,12 +1,12 @@
 package com.devops.orderservice.service;
 
+import com.devops.common.dtos.order.request.OrderRequest;
+import com.devops.common.dtos.order.response.OrderResponse;
+import com.devops.common.dtos.order.response.ProductResponse;
 import com.devops.common.exceptions.OrderNotFoundException;
 import com.devops.common.exceptions.ProductNotFoundException;
 import com.devops.common.utils.Constants;
 import com.devops.common.utils.ServiceUtils;
-import com.devops.orderservice.dtos.request.OrderRequest;
-import com.devops.orderservice.dtos.response.OrderResponse;
-import com.devops.orderservice.dtos.response.ProductResponse;
 import com.devops.orderservice.entity.OrderedProducts;
 import com.devops.orderservice.entity.Orders;
 import com.devops.orderservice.repository.OrderRepository;

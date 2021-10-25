@@ -1,7 +1,7 @@
 package com.devops.productservice.controller;
 
+import com.devops.common.dtos.product.request.ProductRequest;
 import com.devops.common.exceptions.ProductNotFoundException;
-import com.devops.productservice.dtos.request.ProductRequest;
 import com.devops.productservice.entity.Products;
 import com.devops.productservice.service.ProductService;
 import lombok.RequiredArgsConstructor;

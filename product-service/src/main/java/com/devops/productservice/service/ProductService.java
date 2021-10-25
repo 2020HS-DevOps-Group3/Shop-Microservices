@@ -1,9 +1,9 @@
 package com.devops.productservice.service;
 
+import com.devops.common.dtos.product.request.ProductRequest;
 import com.devops.common.exceptions.ProductNotFoundException;
 import com.devops.common.utils.Constants;
 import com.devops.common.utils.ServiceUtils;
-import com.devops.productservice.dtos.request.ProductRequest;
 import com.devops.productservice.entity.Products;
 import com.devops.productservice.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;

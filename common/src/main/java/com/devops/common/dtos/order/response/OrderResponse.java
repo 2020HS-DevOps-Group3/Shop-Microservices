@@ -1,23 +1,21 @@
-package com.devops.productservice.dtos.request;
+package com.devops.common.dtos.order.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderRequest {
+public class OrderResponse {
 
-    @NotNull
-    private List<ProductRequest> products;
+    private String id;
 
-    @NotNull
     private int totalQty;
 
-    @NotNull
     private double totalPrice;
+
+    private List<ProductResponse> products;
 }
