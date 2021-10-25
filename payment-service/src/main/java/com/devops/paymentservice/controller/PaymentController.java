@@ -1,9 +1,9 @@
 package com.devops.paymentservice.controller;
 
+import com.devops.common.dtos.payment.request.PaymentRequest;
+import com.devops.common.dtos.payment.response.PaymentResponse;
 import com.devops.common.exceptions.PaymentAlreadyMadeException;
 import com.devops.common.exceptions.PaymentNotFoundException;
-import com.devops.paymentservice.dtos.request.PaymentRequest;
-import com.devops.paymentservice.dtos.response.PaymentResponse;
 import com.devops.paymentservice.service.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

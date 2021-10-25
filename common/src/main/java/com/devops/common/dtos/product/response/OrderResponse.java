@@ -1,17 +1,21 @@
-package com.devops.paymentservice.dtos.response;
+package com.devops.common.dtos.product.response;
 
-import com.devops.common.enums.PaymentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentResponse {
+public class OrderResponse {
 
     private String id;
-    private String orderId;
-    private PaymentStatus status;
+
+    private int totalQty;
+
     private double totalPrice;
+
+    private List<ProductResponse> products;
 }
