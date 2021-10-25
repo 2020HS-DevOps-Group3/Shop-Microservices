@@ -74,6 +74,7 @@ public interface Constants {
         public static final String PAYMENT_ALREADY_MADE = "Payment details already exists";
         public static final String ORDER_NOT_FOUND = "Order not found";
         public static final String PRODUCT_NOT_FOUND = "Product not found";
+        public static final String PAYMENT_NOT_FOUND = "Payment details not found";
 
         private ErrorMessages() {
         }
