@@ -1,9 +1,9 @@
 package com.devops.orderservice.controller;
 
+import com.devops.common.dtos.order.request.OrderRequest;
+import com.devops.common.dtos.order.response.OrderResponse;
 import com.devops.common.exceptions.OrderNotFoundException;
 import com.devops.common.exceptions.ProductNotFoundException;
-import com.devops.orderservice.dtos.request.OrderRequest;
-import com.devops.orderservice.dtos.response.OrderResponse;
 import com.devops.orderservice.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

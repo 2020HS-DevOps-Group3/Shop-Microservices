@@ -1,19 +1,17 @@
-package com.devops.paymentservice.dtos.request;
+package com.devops.common.dtos.payment.response;
 
+import com.devops.common.enums.PaymentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentRequest {
+public class PaymentResponse {
 
-    @NotBlank
+    private String id;
     private String orderId;
-
-    @NotBlank
+    private PaymentStatus status;
     private double totalPrice;
 }

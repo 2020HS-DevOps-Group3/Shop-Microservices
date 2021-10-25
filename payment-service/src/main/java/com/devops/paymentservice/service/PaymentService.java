@@ -1,12 +1,12 @@
 package com.devops.paymentservice.service;
 
+import com.devops.common.dtos.payment.request.PaymentRequest;
+import com.devops.common.dtos.payment.response.PaymentResponse;
 import com.devops.common.enums.PaymentStatus;
 import com.devops.common.exceptions.PaymentAlreadyMadeException;
 import com.devops.common.exceptions.PaymentNotFoundException;
 import com.devops.common.utils.Constants;
 import com.devops.common.utils.ServiceUtils;
-import com.devops.paymentservice.dtos.request.PaymentRequest;
-import com.devops.paymentservice.dtos.response.PaymentResponse;
 import com.devops.paymentservice.entity.Payments;
 import com.devops.paymentservice.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;

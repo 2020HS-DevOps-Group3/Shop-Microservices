@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface ProductRepository extends JpaRepository<OrderedProducts, String> {
+public interface OrderedProductRepository extends JpaRepository<OrderedProducts, String> {
 
     @Query("from OrderedProducts p where p.id in ?1")
     List<OrderedProducts> findByIds(List<String> ids);
