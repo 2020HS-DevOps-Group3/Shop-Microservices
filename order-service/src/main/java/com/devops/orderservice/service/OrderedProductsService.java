@@ -3,7 +3,7 @@ package com.devops.orderservice.service;
 import com.devops.common.exceptions.ProductNotFoundException;
 import com.devops.common.utils.Constants;
 import com.devops.orderservice.entity.OrderedProducts;
-import com.devops.orderservice.repository.ProductRepository;
+import com.devops.orderservice.repository.OrderedProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderedProductsService {
 
-    private final ProductRepository repository;
+    private final OrderedProductRepository repository;
 
     public OrderedProducts findById(String id) throws ProductNotFoundException {
         return repository.findById(id).orElseThrow(() -> new ProductNotFoundException(Constants.ErrorMessages.PRODUCT_NOT_FOUND));
