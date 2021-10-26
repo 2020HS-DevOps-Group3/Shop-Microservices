@@ -1,8 +1,9 @@
 package com.devops.productservice.controller;
 
-import com.devops.common.dtos.request.ProductRequest;
+import com.devops.common.dtos.ServiceResponse;
+import com.devops.common.dtos.product.request.ProductRequest;
+import com.devops.common.dtos.product.response.ProductResponse;
 import com.devops.common.exceptions.ProductNotFoundException;
-import com.devops.productservice.entity.Products;
 import com.devops.productservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,22 +21,22 @@ public class ProductController {
     private final ProductService service;
 
     @GetMapping()
-    public ResponseEntity<List<Products>> getAllProducts() {
-        return new ResponseEntity<>(service.getAllProducts(), HttpStatus.OK);
+    public ResponseEntity<ServiceResponse<List<ProductResponse>>> getAllProducts() {
+        return ServiceResponse.ok(service.getAllProducts());
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Products> getAProduct(@PathVariable String id) throws ProductNotFoundException {
-        return new ResponseEntity<>(service.findProductById(id), HttpStatus.OK);
+    public ResponseEntity<ServiceResponse<ProductResponse>> getAProduct(@PathVariable String id) throws ProductNotFoundException {
+        return ServiceResponse.ok(service.findProductById(id));
     }
 
     @PostMapping()
-    public ResponseEntity<Products> addProduct(@RequestBody ProductRequest request) {
-        return new ResponseEntity<>(service.addProduct(request), HttpStatus.CREATED);
+    public ResponseEntity<ServiceResponse<ProductResponse>> addProduct(@RequestBody ProductRequest request) {
+        return ServiceResponse.created(service.addProduct(request));
     }
 
     @PostMapping("/verify")
     public ResponseEntity<Boolean> verifyProducts(@RequestBody Set<String> ids) {
-        return new ResponseEntity<>(service.verifyProducts(ids), HttpStatus.OK);
+        return new ResponseEntity<>(service. verifyProducts(ids), HttpStatus.OK);
     }
 }
