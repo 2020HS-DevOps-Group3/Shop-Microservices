@@ -1,4 +1,0 @@
--- insert into products (ID, QTY, PRICE)
--- values ('55a46d25-82d1-4c3e-a559-c7564fa59e32', '100', '999');
--- insert into products (ID, QTY, PRICE)
--- values ('e35c05c3-5107-4f80-a8a7-35b34e37554b', '100', '999');

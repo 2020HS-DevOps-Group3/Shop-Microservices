@@ -1,6 +1,7 @@
 package com.devops.productservice.service;
 
-import com.devops.common.dtos.request.ProductRequest;
+import com.devops.common.dtos.product.request.ProductRequest;
+import com.devops.common.dtos.product.response.ProductResponse;
 import com.devops.common.exceptions.ProductNotFoundException;
 import com.devops.common.utils.Constants;
 import com.devops.common.utils.ServiceUtils;
@@ -18,17 +19,20 @@ public class ProductService {
 
     private final ProductRepository repository;
 
-    public List<Products> getAllProducts() {
-        return repository.findAll();
+    public List<ProductResponse> getAllProducts() {
+        List<Products> productsList = repository.findAll();
+        return ServiceUtils.standardModelsMappers(productsList, ProductResponse.class);
     }
 
-    public Products addProduct(ProductRequest request) {
+    public ProductResponse addProduct(ProductRequest request) {
         Products product = ServiceUtils.standardModelMapper(request, Products.class);
-        return repository.save(product);
+        Products savedProduct = repository.save(product);
+        return ServiceUtils.standardModelMapper(savedProduct, ProductResponse.class);
     }
 
-    public Products findProductById(String id) throws ProductNotFoundException {
-        return repository.findById(id).orElseThrow(() -> new ProductNotFoundException(Constants.ErrorMessages.PRODUCT_NOT_FOUND));
+    public ProductResponse findProductById(String id) throws ProductNotFoundException {
+        Products product = repository.findById(id).orElseThrow(() -> new ProductNotFoundException(Constants.ErrorMessages.PRODUCT_NOT_FOUND));
+        return ServiceUtils.standardModelMapper(product, ProductResponse.class);
     }
 
     public Boolean verifyProducts(Set<String> ids) {

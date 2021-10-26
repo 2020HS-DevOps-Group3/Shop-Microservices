@@ -1,12 +1,12 @@
 package com.devops.orderservice.controller;
 
+import com.devops.common.dtos.ServiceResponse;
 import com.devops.common.dtos.request.OrderRequest;
 import com.devops.common.dtos.response.OrderResponse;
 import com.devops.common.exceptions.OrderNotFoundException;
 import com.devops.common.exceptions.ProductNotFoundException;
 import com.devops.orderservice.service.OrderService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,20 +21,20 @@ public class OrderController {
     private final OrderService orderService;
 
     @GetMapping()
-    public ResponseEntity<List<OrderResponse>> getAllOrders() {
+    public ResponseEntity<ServiceResponse<List<OrderResponse>>> getAllOrders() {
         List<OrderResponse> response = orderService.getAllOrders();
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return ServiceResponse.ok(response);
     }
 
     @PostMapping()
-    public ResponseEntity<OrderResponse> createOrder(@RequestBody @Valid OrderRequest order) throws ProductNotFoundException {
+    public ResponseEntity<ServiceResponse<OrderResponse>> createOrder(@RequestBody @Valid OrderRequest order) throws ProductNotFoundException {
         OrderResponse response = orderService.createOrder(order);
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        return ServiceResponse.created(response);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<OrderResponse> getAOrder(@PathVariable String id) throws OrderNotFoundException, ProductNotFoundException {
+    public ResponseEntity<ServiceResponse<OrderResponse>> getAOrder(@PathVariable String id) throws OrderNotFoundException, ProductNotFoundException {
         OrderResponse response = orderService.findOrderById(id);
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return ServiceResponse.ok(response);
     }
 }
