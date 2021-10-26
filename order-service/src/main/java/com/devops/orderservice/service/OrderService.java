@@ -13,6 +13,7 @@ import com.devops.orderservice.entity.Orders;
 import com.devops.orderservice.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class OrderService {
         return repository.save(order);
     }
 
+    @Transactional
     public OrderResponse createOrder(OrderRequest request) throws ProductNotFoundException {
 
         Orders order = ServiceUtils.standardModelMapper(request, Orders.class);
