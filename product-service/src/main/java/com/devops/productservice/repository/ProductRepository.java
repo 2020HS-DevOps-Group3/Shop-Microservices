@@ -5,9 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Products, String> {
 
-    List<Products> findByIdIn(List<String> ids);
+    List<Products> findByIdIn(Set<String> ids);
 }

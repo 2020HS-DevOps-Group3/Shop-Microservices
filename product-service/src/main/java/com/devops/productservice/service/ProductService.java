@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -30,7 +31,7 @@ public class ProductService {
         return repository.findById(id).orElseThrow(() -> new ProductNotFoundException(Constants.ErrorMessages.PRODUCT_NOT_FOUND));
     }
 
-    public Boolean verifyProducts(List<String> ids) {
+    public Boolean verifyProducts(Set<String> ids) {
         List<Products> products = repository.findByIdIn(ids);
         return products.size() == ids.size();
     }
