@@ -1,6 +1,6 @@
 package com.devops.productservice.service;
 
-import com.devops.common.dtos.product.request.ProductRequest;
+import com.devops.common.dtos.request.ProductRequest;
 import com.devops.common.exceptions.ProductNotFoundException;
 import com.devops.common.utils.Constants;
 import com.devops.common.utils.ServiceUtils;

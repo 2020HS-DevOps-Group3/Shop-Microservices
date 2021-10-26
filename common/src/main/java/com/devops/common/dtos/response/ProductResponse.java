@@ -1,5 +1,6 @@
-package com.devops.common.dtos.order.response;
+package com.devops.common.dtos.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProductResponse {
 
-    private String productId;
+    @JsonProperty("productId")
+    private String id;
 
     private int qty;
 

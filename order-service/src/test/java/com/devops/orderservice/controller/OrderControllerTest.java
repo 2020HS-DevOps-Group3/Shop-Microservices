@@ -1,8 +1,8 @@
 package com.devops.orderservice.controller;
 
-import com.devops.common.dtos.order.request.OrderRequest;
-import com.devops.common.dtos.order.response.OrderResponse;
-import com.devops.common.dtos.order.response.ProductResponse;
+import com.devops.common.dtos.request.OrderRequest;
+import com.devops.common.dtos.response.OrderResponse;
+import com.devops.common.dtos.response.ProductResponse;
 import com.devops.orderservice.service.OrderService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

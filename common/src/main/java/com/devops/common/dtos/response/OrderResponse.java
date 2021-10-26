@@ -1,4 +1,4 @@
-package com.devops.common.dtos.product.response;
+package com.devops.common.dtos.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
