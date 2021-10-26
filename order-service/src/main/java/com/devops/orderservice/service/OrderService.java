@@ -1,8 +1,8 @@
 package com.devops.orderservice.service;
 
-import com.devops.common.dtos.order.request.OrderRequest;
-import com.devops.common.dtos.order.response.OrderResponse;
-import com.devops.common.dtos.order.response.ProductResponse;
+import com.devops.common.dtos.request.OrderRequest;
+import com.devops.common.dtos.response.OrderResponse;
+import com.devops.common.dtos.response.ProductResponse;
 import com.devops.common.exceptions.OrderNotFoundException;
 import com.devops.common.exceptions.ProductNotFoundException;
 import com.devops.common.utils.Constants;
