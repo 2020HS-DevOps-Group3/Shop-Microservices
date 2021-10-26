@@ -27,7 +27,7 @@ public class OrderController {
     }
 
     @PostMapping()
-    public ResponseEntity<OrderResponse> createOrder(@RequestBody @Valid OrderRequest order) {
+    public ResponseEntity<OrderResponse> createOrder(@RequestBody @Valid OrderRequest order) throws ProductNotFoundException {
         OrderResponse response = orderService.createOrder(order);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }

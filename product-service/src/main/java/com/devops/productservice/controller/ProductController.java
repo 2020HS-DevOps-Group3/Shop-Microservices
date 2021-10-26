@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("products")
@@ -33,8 +34,8 @@ public class ProductController {
         return new ResponseEntity<>(service.addProduct(request), HttpStatus.CREATED);
     }
 
-    @GetMapping("/verify")
-    public ResponseEntity<Boolean> verifyProducts(@RequestBody List<String> ids) {
+    @PostMapping("/verify")
+    public ResponseEntity<Boolean> verifyProducts(@RequestBody Set<String> ids) {
         return new ResponseEntity<>(service.verifyProducts(ids), HttpStatus.OK);
     }
 }
