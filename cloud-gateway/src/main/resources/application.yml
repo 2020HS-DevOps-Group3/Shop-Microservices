@@ -8,6 +8,13 @@ spring:
     name: Gateway-Service
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
       routes:
         - id: order-service
           uri: lb://Order-Service
