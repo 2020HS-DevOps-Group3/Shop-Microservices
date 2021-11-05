@@ -1,5 +1,55 @@
-<div *ngFor="let prod of products">
-  <div>
-    {{prod.name}}
-  </div>
-</div>
+<!--<div *ngFor="let prod of products">-->
+<!--  <div>-->
+<!--    {{prod.name}}-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<mat-list>-->
+<!--  <div *ngFor="let prod of products">-->
+<!--    <div>-->
+<!--      <mat-list-item>{{prod.name}}</mat-list-item>-->
+<!--      <mat-divider></mat-divider>-->
+<!--    </div>-->
+<!--    <div *ngFor="let prod of products">-->
+
+<!--</mat-list>-->
+
+<mat-toolbar class="toolbar">
+  Product Ordering
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+
+  <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <h1>Product List</h1>
+
+    <div style="width: 100vw; height: auto;">
+      <div style="display: flex; flex-wrap: wrap; flex-direction: row; margin: 2rem auto; width: 80vw;">
+        <div *ngFor="let prod of products" style="min-width: 250px">
+
+          <mat-card class="card">
+            <mat-card-title-group>
+              <mat-card-title>{{prod.name}}</mat-card-title>
+              <mat-card-subtitle>{{prod.price | currency: 'INR'}}</mat-card-subtitle>
+            </mat-card-title-group>
+
+            <mat-card-content>{{prod.description}}</mat-card-content>
+
+            <mat-card-actions>
+              <button mat-raised-button color="primary"><mat-icon>add_shopping_cart</mat-icon>Add to Cart</button>
+              <button mat-raised-button color="accent">Buy Now</button>
+            </mat-card-actions>
+
+          </mat-card>
+
+        </div>
+      </div>
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+

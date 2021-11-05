@@ -20,6 +20,9 @@ public class ProductRequest {
     @Min(value = 1)
     private int qty;
 
+    @NotBlank
+    private String description;
+
     @NotNull
     @Min(value = 0)
     private double price;
