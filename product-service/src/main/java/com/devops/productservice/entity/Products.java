@@ -23,10 +23,10 @@ public class Products {
 
     private String name;
 
-    private String qty;
-
     @Column(columnDefinition = "CLOB")
     private String description;
 
-    private String price;
+    private int qty;
+
+    private double price;
 }
