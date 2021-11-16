@@ -20,9 +20,9 @@ public class ProductServiceApplication {
     public CommandLineRunner loadData(ProductRepository repository) {
         return arg -> {
             // save a couple of customers
-            repository.save(new Products(null, "The Black Google Tee\t", "The Black Google Tee\t", 20, 599));
-            repository.save(new Products(null, "Google Tee Green\t", "100% cotton Google t-shirt\t", 15, 899));
-            repository.save(new Products(null, "Google Twill Cap\n", "Classic Google cap\n", 99, 299));
+            repository.save(new Products(null, "The Black Google Tee\t", "https://developers.google.com/shopping-content/images/shirt.jpg","The Black Google Tee\t", 20, 599));
+            repository.save(new Products(null, "Google Tee Green\t", "https://developers.google.com/shopping-content/images/shirt2.jpg","100% cotton Google t-shirt\t", 15, 899));
+            repository.save(new Products(null, "Google Twill Cap\n", "https://developers.google.com/shopping-content/images/cap.jpg","Classic Google cap\n", 99, 299));
         };
     }
 }

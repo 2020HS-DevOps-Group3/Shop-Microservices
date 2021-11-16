@@ -21,6 +21,9 @@ public class ProductRequest {
     private int qty;
 
     @NotBlank
+    private String imageUrl;
+
+    @NotBlank
     private String description;
 
     @NotNull

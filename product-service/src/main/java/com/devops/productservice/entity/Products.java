@@ -24,6 +24,9 @@ public class Products {
     private String name;
 
     @Column(columnDefinition = "CLOB")
+    private String imageUrl;
+
+    @Column(columnDefinition = "CLOB")
     private String description;
 
     private int qty;
