@@ -26,12 +26,11 @@ pipeline {
     }
 
     stage("SonarQube analysis") {
-      // agent any
+      agent any
       steps {
-        echo "${SONAR_MAVEN_GOAL}"
-        // withSonarQubeEnv('My SonarQube Server') {
-        //   sh 'mvn clean package sonar:sonar'
-        // }
+        withSonarQubeEnv('My SonarQube Server') {
+          sh 'mvn clean package sonar:sonar'
+        }
       }
     }
 
