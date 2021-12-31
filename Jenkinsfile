@@ -24,7 +24,25 @@ pipeline {
         echo 'testing the project...'
       }
     }
-    
+
+    stage("SonarQube analysis") {
+      // agent any
+      steps {
+        echo "${SONAR_MAVEN_GOAL}"
+        // withSonarQubeEnv('My SonarQube Server') {
+        //   sh 'mvn clean package sonar:sonar'
+        // }
+      }
+    }
+
+    // stage("Quality Gate") {
+    //   steps {
+    //     timeout(time: 10, unit: 'MINUTES') {
+    //       waitForQualityGate abortPipeline: true
+    //     }
+    //   }
+    // }
+
     stage("deploy") {
       
       steps {
