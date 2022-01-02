@@ -7,25 +7,20 @@ pipeline {
   }
   
   stages {
-    
-    stage("build") {
-      
+    stage("Build") {
       steps {
-        
-        echo 'building the project...'
+        echo 'Build the project...'
         sh "mvn compile"
       }
     }
     
-    stage("test") {
-      
-      steps {
-        
-        echo 'testing the project...'
+    stage("Test") {
+      steps { 
+        echo 'Test the project...'
       }
     }
 
-    stage("SonarQube analysis") {
+    stage("SonarQube") {
       agent any
       steps {
         withSonarQubeEnv('SonarCloud') {
@@ -42,11 +37,9 @@ pipeline {
     //   }
     // }
 
-    stage("deploy") {
-      
+    stage("Deploy") {
       steps {
-        
-        echo 'deploying the project...'
+        echo 'Deploy the project...'
       }
     }
   }
