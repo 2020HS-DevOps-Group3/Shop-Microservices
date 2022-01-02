@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,7 +23,13 @@ public class Products {
 
     private String name;
 
-    private String qty;
+    @Column(columnDefinition = "CLOB")
+    private String imageUrl;
 
-    private String price;
+    @Column(columnDefinition = "CLOB")
+    private String description;
+
+    private int qty;
+
+    private double price;
 }

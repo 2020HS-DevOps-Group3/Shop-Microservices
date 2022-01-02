@@ -20,7 +20,7 @@ export class AppComponent implements OnInit{
         this.products = response.results;
         console.log(this.products);
       }, (error: HttpErrorResponse) => {
-        alert(error.message);
+        // alert(error.message);
       }
     );
   }
