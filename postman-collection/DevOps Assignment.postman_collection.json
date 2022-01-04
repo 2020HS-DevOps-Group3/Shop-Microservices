@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "2374c7d4-f333-44a7-b87c-1eb878607542",
+		"name": "DevOps Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"totalQty\":4,\n    \"totalPrice\":0,\n    \"products\": [\n        {\n            \"id\": \"ca1916fe-012a-4df8-a65f-c057fc850ba3\",\n            \"qty\": 1,\n            \"price\": 990\n        },\n        {\n            \"id\": \"0a3e12a5-5f1b-40d1-acbd-ed884c932b50\",\n            \"qty\": 3,\n            \"price\": 499\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8081/orders/6dc754c5-7d0c-466e-a7d6-3d3c12d559ba"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8081/orders"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Make Payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\":true,\n    \"orderId\":\"a08dca9b-2b49-4b6c-9f1f-00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8082/payments"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Add Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"name\": \"Toy\",\n    \"price\": 990,\n    \"qty\": 100,\n    \"imageUrl\":\"\",\n    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\nPhasellus purus justo, feugiat in ornare nec, consequat sit amet sapien. Sed.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8083/products"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
