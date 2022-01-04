@@ -45,7 +45,7 @@ class OrderServiceTest {
         Orders order = new Orders("1", 100, 1000);
         Mockito.when(repository.save(Mockito.any(Orders.class))).thenReturn(order);
 
-        Mockito.when(restTemplate.postForObject("http://Product-Service/products/verify", Set.of("1"), Boolean.class)).thenReturn(true);
+        Mockito.when(restTemplate.postForObject("http://Product-Service/products/verify/v1", Set.of("1"), Boolean.class)).thenReturn(true);
 
         OrderedProducts orderedProducts = new OrderedProducts("1", "1", 100, 1000, order);
         Mockito.when(orderedProductsService.findAllByOrderId(Mockito.any(String.class))).thenReturn(List.of(orderedProducts));
@@ -66,7 +66,7 @@ class OrderServiceTest {
         Orders order = new Orders("1", 100, 1000);
         Mockito.when(repository.save(Mockito.any(Orders.class))).thenReturn(order);
 
-        Mockito.when(restTemplate.postForObject("http://Product-Service/products/verify", Set.of("1"), Boolean.class)).thenReturn(false);
+        Mockito.when(restTemplate.postForObject("http://Product-Service/products/verify/v1", Set.of("1"), Boolean.class)).thenReturn(false);
 
         OrderedProducts orderedProducts = new OrderedProducts("1", "1", 100, 1000, order);
         Mockito.when(orderedProductsService.findAllByOrderId(Mockito.any(String.class))).thenReturn(List.of(orderedProducts));
