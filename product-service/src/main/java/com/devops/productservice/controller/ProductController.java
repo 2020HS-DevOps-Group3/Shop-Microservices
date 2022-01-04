@@ -3,10 +3,10 @@ package com.devops.productservice.controller;
 import com.devops.common.dtos.ServiceResponse;
 import com.devops.common.dtos.product.request.ProductRequest;
 import com.devops.common.dtos.product.response.ProductResponse;
+import com.devops.common.dtos.response.ProductsResponse;
 import com.devops.common.exceptions.ProductNotFoundException;
 import com.devops.productservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,8 +35,13 @@ public class ProductController {
         return ServiceResponse.created(service.addProduct(request));
     }
 
+//    @PostMapping("/verify")
+//    public ResponseEntity<Boolean> verifyProducts(@RequestBody Set<String> ids) {
+//        return new ResponseEntity<>(service. verifyProducts(ids), HttpStatus.OK);
+//    }
+
     @PostMapping("/verify")
-    public ResponseEntity<Boolean> verifyProducts(@RequestBody Set<String> ids) {
-        return new ResponseEntity<>(service. verifyProducts(ids), HttpStatus.OK);
+    public ProductsResponse getProducts(@RequestBody Set<String> ids) {
+        return service.getProducts(ids);
     }
 }
