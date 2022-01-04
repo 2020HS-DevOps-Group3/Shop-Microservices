@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProductResponse {
 
-    @JsonProperty("productId")
-    private String id;
+    @JsonProperty("id")
+    private String productId;
 
     private int qty;
 

@@ -2,6 +2,7 @@ package com.devops.productservice.service;
 
 import com.devops.common.dtos.product.request.ProductRequest;
 import com.devops.common.dtos.product.response.ProductResponse;
+import com.devops.common.dtos.response.ProductsResponse;
 import com.devops.common.exceptions.ProductNotFoundException;
 import com.devops.common.utils.Constants;
 import com.devops.common.utils.ServiceUtils;
@@ -10,6 +11,7 @@ import com.devops.productservice.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -38,5 +40,17 @@ public class ProductService {
     public Boolean verifyProducts(Set<String> ids) {
         List<Products> products = repository.findByIdIn(ids);
         return products.size() == ids.size();
+    }
+
+    public ProductsResponse getProducts(Set<String> ids) {
+        final List<Products> products = repository.findByIdIn(ids);
+        Set<ProductResponse> productResponses = new HashSet<>(ServiceUtils.standardModelsMappers(products, ProductResponse.class));
+        ProductsResponse response = new ProductsResponse();
+        response.setProductResponseSet(productResponses);
+        return response;
+    }
+
+    public void insertProduct(String id, String name, String imageUrl, String description, int qty, double price) {
+        repository.insertProduct(id, name, imageUrl, description, qty, price);
     }
 }

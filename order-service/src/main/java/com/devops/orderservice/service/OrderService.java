@@ -39,15 +39,17 @@ public class OrderService {
         Orders order = ServiceUtils.standardModelMapper(request, Orders.class);
         List<OrderedProducts> orderedProducts = ServiceUtils.standardModelsMappers(request.getProducts(), OrderedProducts.class);
 
-        // Save the Order first
-        Orders save = repository.save(order);
-
         // TODO: Verify all the Product Ids by making a call to Product Service
         Set<String> productIds = request.getProducts().stream().map(ProductRequest::getId).collect(Collectors.toSet());
-        Boolean isValid = restTemplate.postForObject("http://Product-Service/products/verify", productIds, Boolean.class);
+//        ProductsResponse productsResponse = restTemplate.postForObject("http://Product-Service/products/verify/v2", productIds, ProductsResponse.class);
+        Boolean isValid = restTemplate.postForObject("http://Product-Service/products/verify/v1", productIds, Boolean.class);
 
+//        if (productsResponse == null || (productIds.size() != productsResponse.getProductResponseSet().size()))
         if (!(isValid != null && isValid))
             throw new ProductNotFoundException(Constants.ErrorMessages.PRODUCT_NOT_FOUND);
+
+        // Save the Order first
+        Orders save = repository.save(order);
 
         // Save the Products that are part of the order
         orderedProducts.forEach(p -> p.setOrder(save));
