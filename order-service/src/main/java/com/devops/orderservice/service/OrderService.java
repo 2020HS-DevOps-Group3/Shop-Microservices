@@ -4,7 +4,6 @@ import com.devops.common.dtos.request.OrderRequest;
 import com.devops.common.dtos.request.ProductRequest;
 import com.devops.common.dtos.response.OrderResponse;
 import com.devops.common.dtos.response.ProductResponse;
-import com.devops.common.dtos.response.ProductsResponse;
 import com.devops.common.exceptions.OrderNotFoundException;
 import com.devops.common.exceptions.ProductNotFoundException;
 import com.devops.common.utils.Constants;
@@ -42,9 +41,11 @@ public class OrderService {
 
         // TODO: Verify all the Product Ids by making a call to Product Service
         Set<String> productIds = request.getProducts().stream().map(ProductRequest::getId).collect(Collectors.toSet());
-        ProductsResponse productsResponse = restTemplate.postForObject("http://Product-Service/products/verify", productIds, ProductsResponse.class);
+//        ProductsResponse productsResponse = restTemplate.postForObject("http://Product-Service/products/verify/v2", productIds, ProductsResponse.class);
+        Boolean isValid = restTemplate.postForObject("http://Product-Service/products/verify/v1", productIds, Boolean.class);
 
-        if (productsResponse == null || (productIds.size() != productsResponse.getProductResponseSet().size()))
+//        if (productsResponse == null || (productIds.size() != productsResponse.getProductResponseSet().size()))
+        if (!(isValid != null && isValid))
             throw new ProductNotFoundException(Constants.ErrorMessages.PRODUCT_NOT_FOUND);
 
         // Save the Order first
