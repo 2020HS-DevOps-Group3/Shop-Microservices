@@ -29,7 +29,7 @@ pipeline {
       agent any
       steps {
         withSonarQubeEnv('SonarCloud') {
-            echo 'Static code analysis with SonarQube...'
+          echo 'Static code analysis with SonarQube...'
           sh 'mvn sonar:sonar'
         }
       }
