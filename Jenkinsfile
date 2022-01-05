@@ -5,37 +5,43 @@ pipeline {
   tools {
     maven 'Maven'
   }
-  
+
+  triggers {
+      pollSCM('* * * * *')
+  }
+
   stages {
-    stage("Build") {
+    stage("Compile and Build") {
       steps {
-        echo 'Build the project...'
-        sh "mvn compile"
+        echo 'Compile and Build the project...'
+        sh "mvn clean install -DskipTests"
       }
     }
     
     stage("Test") {
       steps { 
         echo 'Test the project...'
+        sh "mvn test"
       }
     }
 
-    stage("SonarQube") {
+    stage("Code Analysis") {
       agent any
       steps {
         withSonarQubeEnv('SonarCloud') {
-          sh 'mvn clean package sonar:sonar'
+            echo 'Static code analysis with SonarQube...'
+          sh 'mvn sonar:sonar'
         }
       }
     }
 
-    // stage("Quality Gate") {
-    //   steps {
-    //     timeout(time: 10, unit: 'MINUTES') {
-    //       waitForQualityGate abortPipeline: true
-    //     }
-    //   }
-    // }
+//     stage("Quality Gate") {
+//       steps {
+//         timeout(time: 10, unit: 'MINUTES') {
+//           waitForQualityGate abortPipeline: true
+//         }
+//       }
+//     }
 
     stage("Deploy") {
       steps {
