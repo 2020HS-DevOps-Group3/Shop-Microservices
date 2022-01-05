@@ -30,7 +30,7 @@ pipeline {
       steps {
         withSonarQubeEnv('SonarCloud') {
           echo 'Static code analysis with SonarQube...'
-          sh 'mvn sonar:sonar'
+          sh 'mvn clean package sonar:sonar'
         }
       }
     }
