@@ -1,0 +1,3 @@
+[submodule "SeleniumTests"]
+	path = SeleniumTests
+	url = https://github.com/2020HS-DevOps-Group3/SeleniumTests
