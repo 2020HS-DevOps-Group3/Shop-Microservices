@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MessengerService} from "../../../services/messenger.service";
-
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-cart',
@@ -55,6 +55,15 @@ export class CartComponent implements OnInit {
       this.cartTotal += (item?.qty * item?.price);
     })
 
+  }
+
+  order(): void {
+    Swal.fire({
+      title: 'Success!',
+      text: 'You order has been placed successfully',
+      icon: 'success',
+      confirmButtonText: 'Okay'
+    });
   }
 
 
