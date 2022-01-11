@@ -6,9 +6,9 @@ pipeline {
     maven 'Maven'
   }
 
-  triggers {
-      pollSCM('* * * * *')
-  }
+//   triggers {
+//       pollSCM('* * * * *')
+//   }
 
   stages {
     stage("Compile and Build") {
