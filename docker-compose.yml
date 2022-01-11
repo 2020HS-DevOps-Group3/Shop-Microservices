@@ -1,0 +1,50 @@
+version: '3'
+services:
+ cloud-gateway:
+   container_name: cloud-gateway
+   build:
+     context: cloud-gateway
+     dockerfile: Dockerfile
+   image: "cloud-gateway"
+   ports:
+    - 8080
+ order-service:
+   container_name: order-service
+   build:
+     context: order-service
+     dockerfile: Dockerfile
+   image: "order-service"
+   ports:
+     - 8081
+   depends_on:
+     - cloud-gateway
+ payment-service:
+   container_name: payment-service
+   build:
+     context: payment-service
+     dockerfile: Dockerfile
+   image: "payment-service"
+   ports:
+     - 8082
+   depends_on:
+     - order-service
+ product-service:
+   container_name: product-service
+   build:
+     context: product-service
+     dockerfile: Dockerfile
+   image: "product-service"
+   ports:
+     - 8083
+   depends_on:
+     - payment-service
+ service-registry:
+   container_name: service-registry
+   build:
+     context: service-registry
+     dockerfile: Dockerfile
+   image: "service-registry"
+   ports:
+     - 8761
+   depends_on:
+     - product-service
