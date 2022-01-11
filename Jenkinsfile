@@ -49,9 +49,9 @@ pipeline {
 //         }
 //     }
 
-        stage('Deploy to Docker Hub') {
-            parallel {
-                stage('Build Cloud-Gateway') {
+//         stage('Deploy to Docker Hub') {
+//             parallel {
+                stage('Deploy Cloud-Gateway') {
                     steps {
                         sh 'docker build ./cloud-gateway -t generalnitin/devops-cloud-gateway:$BUILD_NUMBER'
                         withCredentials([string(credentialsId: 'generalnitin-dockerhub', variable: 'docker_pwd')]) {
@@ -66,7 +66,7 @@ pipeline {
                     }
                 }
 
-                stage('Build Order-Service') {
+                stage('Deploy Order-Service') {
                     steps {
                         sh 'docker build ./order-service -t generalnitin/devops-order-service:$BUILD_NUMBER'
                         withCredentials([string(credentialsId: 'generalnitin-dockerhub', variable: 'docker_pwd')]) {
@@ -80,7 +80,7 @@ pipeline {
                         }
                     }
                 }
-                stage('Build Payment-Service') {
+                stage('Deploy Payment-Service') {
                     steps {
                         sh 'docker build ./payment-service -t generalnitin/devops-payment-service:$BUILD_NUMBER'
                         withCredentials([string(credentialsId: 'generalnitin-dockerhub', variable: 'docker_pwd')]) {
@@ -94,7 +94,7 @@ pipeline {
                         }
                     }
                 }
-                stage('Build Product-Service') {
+                stage('Deploy Product-Service') {
                     steps {
                         sh 'docker build ./product-service -t generalnitin/devops-product-service:$BUILD_NUMBER'
                         withCredentials([string(credentialsId: 'generalnitin-dockerhub', variable: 'docker_pwd')]) {
@@ -108,7 +108,7 @@ pipeline {
                         }
                     }
                 }
-                stage('Build Service-Registry') {
+                stage('Deploy Service-Registry') {
                     steps {
                         sh 'docker build ./service-registry -t generalnitin/devops-service-registry:$BUILD_NUMBER'
                         withCredentials([string(credentialsId: 'generalnitin-dockerhub', variable: 'docker_pwd')]) {
@@ -122,7 +122,7 @@ pipeline {
                         }
                     }
                 }
-            }
-        }
+//             }
+//         }
     }
 }
