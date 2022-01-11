@@ -24,22 +24,22 @@ pipeline {
             }
         }
     
-        stage("Test") {
-            steps {
-                echo 'Test the project...'
-                sh "mvn test"
-            }
-        }
-
-        stage("Code Analysis") {
-            agent any
-            steps {
-                withSonarQubeEnv('SonarCloud') {
-                    echo 'Static code analysis with SonarQube...'
-                    sh 'mvn clean package -DskipTests sonar:sonar'
-                }
-            }
-        }
+//         stage("Test") {
+//             steps {
+//                 echo 'Test the project...'
+//                 sh "mvn test"
+//             }
+//         }
+//
+//         stage("Code Analysis") {
+//             agent any
+//             steps {
+//                 withSonarQubeEnv('SonarCloud') {
+//                     echo 'Static code analysis with SonarQube...'
+//                     sh 'mvn clean package -DskipTests sonar:sonar'
+//                 }
+//             }
+//         }
 
 //     stage("Quality Gate") {
 //         steps {
