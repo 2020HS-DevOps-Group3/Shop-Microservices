@@ -7,7 +7,6 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('generalnitin-dockerhub')
-        TAG = getCommitHash()
     }
 
 //     triggers {
@@ -51,11 +50,11 @@ pipeline {
 //             parallel {
                 stage('Deploy Cloud-Gateway') {
                     steps {
-                        sh 'docker build ./cloud-gateway -t generalnitin/devops-cloud-gateway:${TAG}'
+                        sh 'docker build ./cloud-gateway -t generalnitin/devops-cloud-gateway:${GIT_COMMIT}'
                         withCredentials([string(credentialsId: 'generalnitin-dockerhub', variable: 'docker_pwd')]) {
                             sh "docker login -u generalnitin -p ${docker_pwd}"
                         }
-                        sh "docker push generalnitin/devops-cloud-gateway:${TAG} "
+                        sh "docker push generalnitin/devops-cloud-gateway:${GIT_COMMIT} "
                     }
                     post {
                         always {
@@ -66,11 +65,11 @@ pipeline {
 
                 stage('Deploy Order-Service') {
                     steps {
-                        sh 'docker build ./order-service -t generalnitin/devops-order-service:${TAG}'
+                        sh 'docker build ./order-service -t generalnitin/devops-order-service:${GIT_COMMIT}'
                         withCredentials([string(credentialsId: 'generalnitin-dockerhub', variable: 'docker_pwd')]) {
                             sh "docker login -u generalnitin -p ${docker_pwd}"
                         }
-                        sh "docker push generalnitin/devops-order-service:${TAG} "
+                        sh "docker push generalnitin/devops-order-service:${GIT_COMMIT}"
                     }
                     post {
                         always {
@@ -80,11 +79,11 @@ pipeline {
                 }
                 stage('Deploy Payment-Service') {
                     steps {
-                        sh 'docker build ./payment-service -t generalnitin/devops-payment-service:${TAG}'
+                        sh 'docker build ./payment-service -t generalnitin/devops-payment-service:${GIT_COMMIT}'
                         withCredentials([string(credentialsId: 'generalnitin-dockerhub', variable: 'docker_pwd')]) {
                             sh "docker login -u generalnitin -p ${docker_pwd}"
                         }
-                        sh "docker push generalnitin/devops-payment-service:${TAG} "
+                        sh "docker push generalnitin/devops-payment-service:${GIT_COMMIT}"
                     }
                     post {
                         always {
@@ -94,11 +93,11 @@ pipeline {
                 }
                 stage('Deploy Product-Service') {
                     steps {
-                        sh 'docker build ./product-service -t generalnitin/devops-product-service:${TAG}'
+                        sh 'docker build ./product-service -t generalnitin/devops-product-service:${GIT_COMMIT}'
                         withCredentials([string(credentialsId: 'generalnitin-dockerhub', variable: 'docker_pwd')]) {
                             sh "docker login -u generalnitin -p ${docker_pwd}"
                         }
-                        sh "docker push generalnitin/devops-product-service:${TAG} "
+                        sh "docker push generalnitin/devops-product-service:${GIT_COMMIT}"
                     }
                     post {
                         always {
@@ -108,11 +107,11 @@ pipeline {
                 }
                 stage('Deploy Service-Registry') {
                     steps {
-                        sh 'docker build ./service-registry -t generalnitin/devops-service-registry:${TAG}'
+                        sh 'docker build ./service-registry -t generalnitin/devops-service-registry:${GIT_COMMIT}'
                         withCredentials([string(credentialsId: 'generalnitin-dockerhub', variable: 'docker_pwd')]) {
                             sh "docker login -u generalnitin -p ${docker_pwd}"
                         }
-                        sh "docker push generalnitin/devops-service-registry:${TAG} "
+                        sh "docker push generalnitin/devops-service-registry:${GIT_COMMIT}"
                     }
                     post {
                         always {
@@ -123,8 +122,4 @@ pipeline {
 //             }
 //         }
     }
-}
-def getCommitHash(){
-    def commitHash = sh label: '', returnStdout: true, script: 'git rev-parse --short HEAD'
-    return commitHash
 }
