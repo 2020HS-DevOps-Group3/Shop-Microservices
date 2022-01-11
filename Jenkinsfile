@@ -96,7 +96,7 @@ pipeline {
                 }
                 stage('Build Product-Service') {
                     steps {
-                        sh 'docker build ./product-service -t generalnitin//devops-product-service:$BUILD_NUMBER'
+                        sh 'docker build ./product-service -t generalnitin/devops-product-service:$BUILD_NUMBER'
                         withCredentials([string(credentialsId: 'generalnitin-dockerhub', variable: 'docker_pwd')]) {
                             sh "docker login -u generalnitin -p ${docker_pwd}"
                         }
@@ -110,7 +110,7 @@ pipeline {
                 }
                 stage('Build Service-Registry') {
                     steps {
-                        sh 'docker build ./service-registry -t generalnitin//devops-service-registry:$BUILD_NUMBER'
+                        sh 'docker build ./service-registry -t generalnitin/devops-service-registry:$BUILD_NUMBER'
                         withCredentials([string(credentialsId: 'generalnitin-dockerhub', variable: 'docker_pwd')]) {
                             sh "docker login -u generalnitin -p ${docker_pwd}"
                         }
