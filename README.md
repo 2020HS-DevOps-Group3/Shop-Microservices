@@ -13,38 +13,7 @@ A Shopping Website with Microservices Architecture with backend on Java Spring B
 |5     	|||
 
 ## Sequence Diagram
-```mermaid
-sequenceDiagram
-Browser ->> Product: Requests for Catalog
-Product ->> Browser: 200: Lists all the Products
-Browser ->> Order: Orders some products
-Order ->> Product: Validates Ordered Items
-Product ->> Order: 204: Items exists and in stock
-Order->>Payment: Process and store
-#Product-x Order: Out of Stocaak!
-Payment->>Browser: Order Placed Successfully !
-Product --x Browser: 503: Product Service Unavailable 
-Product-x Order: 400: Invalid or Out of Stock!
-Order-x Browser: 400: Out of Stock!
-Order--x Product: 503: Order Service Unavailable
-
-#Order--x Payment: 
-Payment--x Order: 503: Payment Service Unavailable
-Note right of Payment: Timeout set for 10<br/>seconds, if no res-<br/>ponse is recived th-<br/>en Error 503 is sent.
-
-#Order-->Product: Checking with John...
-Note  over  Product,Payment: Registered with Eureka Discovery Client and Cloud Gateway
-
-#Product->Payment: Registered with Eureka Discovery Client and Cloud Gateway
-```
+![image](https://user-images.githubusercontent.com/61423609/148912059-e2cca90e-b3b2-4b19-b8f4-af80665be4ab.png)
 
 ## Jenkins Pipeline
-```mermaid
-graph LR
-A((Start)) -- Compile and Build --> B[Build Stage]
-B -- JUnits -->C(Test Stage)
-B -- Selenium -->C
-C --SonarQube--> D{Code Analysis Stage}
-D --> E[Deploy Stage]
-E --> F((End))
-```
+![image](https://user-images.githubusercontent.com/61423609/148912146-08766892-b8a5-4cf2-8248-652abe74e1ea.png)
