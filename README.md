@@ -5,12 +5,12 @@ A Shopping Website with Microservices Architecture with backend on Java Spring B
 
 ## Group 3 - Team Members
 |S No	|Name                           |Roll No			|
-|-----|-------------------------------|-------------|
-|1		|Nitin Kumar           			    |2020HS70003	|
-|2   	|Yukta Pandey                   |2020HS70045  |
-|3    |Nandini Agarwal                |2020HS70024  |
-|4   	|Sharin Raveendran              |2020HS70047  |
-|5   	|Nikhil Gupta                   |2020HS70042  |
+|-------|-------------------------------|-------------------|
+|1		|Nitin Kumar           			|2020HS70003			|
+|2   	|||
+|3     	|||
+|4     	|||
+|5     	|||
 
 ## Sequence Diagram
 ![image](https://user-images.githubusercontent.com/61423609/148912059-e2cca90e-b3b2-4b19-b8f4-af80665be4ab.png)
