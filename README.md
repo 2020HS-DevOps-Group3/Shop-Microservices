@@ -4,13 +4,10 @@ A Shopping Website with Microservices Architecture with backend on Java Spring B
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=2020HS-DevOps-Group3_DevOps-Project&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=2020HS-DevOps-Group3_DevOps-Project)  [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=2020HS-DevOps-Group3_DevOps-Project&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=2020HS-DevOps-Group3_DevOps-Project) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=2020HS-DevOps-Group3_DevOps-Project&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=2020HS-DevOps-Group3_DevOps-Project)  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=2020HS-DevOps-Group3_DevOps-Project&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=2020HS-DevOps-Group3_DevOps-Project)  [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=2020HS-DevOps-Group3_DevOps-Project&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=2020HS-DevOps-Group3_DevOps-Project) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=2020HS-DevOps-Group3_DevOps-Project&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=2020HS-DevOps-Group3_DevOps-Project)
 
 ## Group 3 - Team Members
-|S No	|Name                           |Roll No			|
-|-----|-------------------------------|-------------|
-|1		|Nitin Kumar           			    |2020HS70003	|
-|2   	|Yukta Pandey                   |2020HS70045  |
-|3    |Nandini Agarwal                |2020HS70024  |
-|4   	|Sharin Raveendran              |2020HS70047  |
-|5   	|Nikhil Gupta                   |2020HS70042  |
+## Group 3 - Team Members
+| S No  | Name                 | Roll No     |
+|-------|----------------------|-------------|
+| 1     | Nitin Kumar          | 2020HS70003 |
 
 ## Sequence Diagram
 ![image](https://user-images.githubusercontent.com/61423609/148912059-e2cca90e-b3b2-4b19-b8f4-af80665be4ab.png)
